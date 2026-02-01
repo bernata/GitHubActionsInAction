@@ -16,7 +16,9 @@ jobs:
       - run: echo "hello world ${{ inputs.stuff }}"
       - name: Checkout
         uses: actions/checkout@v6.0.2
-      - run: echo "::error file=app.js,line=1,col=5,endColumn=7::Error in app.js"
+      - run: echo "my_key=my_value" >> $GITHUB_OUTPUT
+        id: value-generator
+      - run: echo "PREVIOUS: ${{ steps.value-generator.outputs.my_key }}"        
       - name: List Files
         run: |
           echo "Files in the repo ${{github.repository}}"
