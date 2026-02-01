@@ -4,12 +4,16 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      stuff:
+        description: "stuff to enter"
+        required: true
 
 jobs:
   MyFirstJob:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - run: echo "hello world ${{ inputs.stuff }}"
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: List Files
