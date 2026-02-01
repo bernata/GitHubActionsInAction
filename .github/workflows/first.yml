@@ -17,8 +17,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - run: echo "my_key=my_value" >> $GITHUB_OUTPUT
-        id: value-generator
-      - run: echo "PREVIOUS: ${{ steps.value-generator.outputs.my_key }}"        
+        id: valuegenerator
+      - run: echo "${{ steps.valuegenerator.outputs.my_key }}" 
       - name: List Files
         run: |
           echo "Files in the repo ${{github.repository}}"
