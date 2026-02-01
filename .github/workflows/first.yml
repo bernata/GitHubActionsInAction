@@ -16,6 +16,7 @@ jobs:
       - run: echo "hello world ${{ inputs.stuff }}"
       - name: Checkout
         uses: actions/checkout@v6.0.2
+      - run: echo "::error file=app.js,line=1,col=5,endColumn=7::Error in app.js"
       - name: List Files
         run: |
           echo "Files in the repo ${{github.repository}}"
