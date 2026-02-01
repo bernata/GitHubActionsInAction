@@ -1,0 +1,20 @@
+name: My First
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  MyFirstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: List Files
+        run: |
+          echo "Files in the repo ${github.repository}"
+          tree
+
+
